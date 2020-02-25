@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class WinLotto {
-    public static final String ERROR_MESSAGE_NOT_INTEGER = "숫자가 아닌 문자를 입력하였습니다.";
+    private static final String ERROR_MESSAGE_NOT_INTEGER = "숫자가 아닌 문자를 입력하였습니다.";
 
 
     private final Lotto winLotto;
@@ -16,7 +16,7 @@ public class WinLotto {
         this.bonusBall = new BonusBall(bonusBall);
     }
 
-    public List<LottoNo> toLottoNoList(String[] winLotto) {
+    private List<LottoNo> toLottoNoList(String[] winLotto) {
         try {
             return Arrays.stream(winLotto)
                     .map(Integer::parseInt)
