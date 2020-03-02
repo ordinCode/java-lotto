@@ -13,7 +13,14 @@ public class LottoNo implements Comparable<LottoNo> {
 	public static Map<Integer, LottoNo> lottoNoBox = new HashMap<>();
 
 	private LottoNo(int number) {
+		validateLottoNo(number);
 		this.number = number;
+	}
+
+	private static void validateLottoNo(int lottoNumber) {
+		if (lottoNumber < MIN_LOTTO_NO || lottoNumber > MAX_LOTTO_NO) {
+			throw new IllegalArgumentException(ERROR_MESSAGE_LOTTO_RANGE);
+		}
 	}
 
 	static {
@@ -23,14 +30,7 @@ public class LottoNo implements Comparable<LottoNo> {
 	}
 
 	private static LottoNo valueOf(int number) {
-		validateLottoNo(number);
 		return new LottoNo(number);
-	}
-
-	private static void validateLottoNo(int lottoNumber) {
-		if (lottoNumber < MIN_LOTTO_NO || lottoNumber > MAX_LOTTO_NO) {
-			throw new IllegalArgumentException(ERROR_MESSAGE_LOTTO_RANGE);
-		}
 	}
 
 	public static LottoNo toLottoNo(int number) {
