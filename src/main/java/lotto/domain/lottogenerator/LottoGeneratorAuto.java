@@ -12,7 +12,18 @@ import static lotto.domain.lottogenerator.LottoNo.*;
 
 public class LottoGeneratorAuto implements LottoGenerator {
 	private static final int LOTTO_NO_PICK_FROM_INDEX = 0;
+
 	private static final String ERROR_MESSAGE_NULL_POINT_LOTTO_FACTORY = "입력값이 비었습니다.";
+
+	@Override
+	public List<Lotto> generator(Customer customer) {
+		validate(customer);
+		List<Lotto> lottos = new ArrayList<>();
+		for (int i = 0; i < customer.calculatorAutoLottoCount(); i++) {
+			lottos.add(createLottoAuto());
+		}
+		return lottos;
+	}
 
 	private static List<LottoNo> pickSixRandomNo() {
 		List<LottoNo> lotto = new ArrayList<>(lottoNoBox.values());
@@ -30,15 +41,5 @@ public class LottoGeneratorAuto implements LottoGenerator {
 	private static Lotto createLottoAuto() {
 		List<LottoNo> lotto = new ArrayList<>(pickSixRandomNo());
 		return new Lotto(lotto);
-	}
-
-	@Override
-	public List<Lotto> generator(Customer customer) {
-		validate(customer);
-		List<Lotto> lottos = new ArrayList<>();
-		for (int i = 0; i < customer.calculatorAutoLottoCount(); i++) {
-			lottos.add(createLottoAuto());
-		}
-		return lottos;
 	}
 }
