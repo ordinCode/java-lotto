@@ -16,4 +16,22 @@ public class MoneyTest {
 				.isInstanceOf(IllegalArgumentException.class)
 				.hasMessage("숫자가 아닌 문자를 입력하였습니다.");
 	}
+
+	@DisplayName("1000원 이하의 금액입력")
+	@Test
+	void underThousand() {
+		String inputMoney = "999";
+		assertThatThrownBy(() -> new Money(inputMoney))
+				.isInstanceOf(IllegalArgumentException.class)
+				.hasMessage("1000원 이상의 금액을 입력하세요.");
+	}
+
+	@DisplayName("0원 입력")
+	@Test
+	void underThousand2() {
+		String inputMoney = "0";
+		assertThatThrownBy(() -> new Money(inputMoney))
+				.isInstanceOf(IllegalArgumentException.class)
+				.hasMessage("1000원 이상의 금액을 입력하세요.");
+	}
 }
