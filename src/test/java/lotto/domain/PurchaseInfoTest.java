@@ -12,7 +12,8 @@ public class PurchaseInfoTest {
 		int manualLottoCount = 3;
 		Money money = new Money("2000");
 		assertThatThrownBy(() -> new PurchaseInfo(money, manualLottoCount))
-				.isInstanceOf(IllegalArgumentException.class);
+				.isInstanceOf(IllegalArgumentException.class)
+				.hasMessage("구입가능한 로또 수보다 큰 수를 입력하였습니다.");
 	}
 
 	@DisplayName("구입가능한 범위에서 수동 로또 구매")
