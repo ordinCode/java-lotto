@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public class LottoGeneratorManual {
 
-	public static List<Lotto> generate(String[] lottoNumbers) {
+	public static Lottos generate(String[] lottoNumbers) {
 		List<Lotto> lottos = new ArrayList<>();
 		for (String lottoNumber : lottoNumbers) {
 			List<LottoNo> lottoNos = Arrays.stream(lottoNumber.split(","))
@@ -16,6 +16,6 @@ public class LottoGeneratorManual {
 					.collect(Collectors.toList());
 			lottos.add(new Lotto(lottoNos));
 		}
-		return lottos;
+		return new Lottos(lottos);
 	}
 }

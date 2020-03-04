@@ -18,11 +18,10 @@ public class LottoGeneratorManualTest {
 		lottos.add(new Lotto(IntStream.range(1, 7).boxed()
 				.map(LottoNo::toLottoNo)
 				.collect(Collectors.toList())));
-
 		lottos.add(new Lotto(IntStream.range(11, 17).boxed()
 				.map(LottoNo::toLottoNo)
 				.collect(Collectors.toList())));
 
-		assertThat(LottoGeneratorManual.generate(lottoNumbers)).isEqualTo(lottos);
+		assertThat(LottoGeneratorManual.generate(lottoNumbers)).isEqualTo(new Lottos(lottos));
 	}
 }
