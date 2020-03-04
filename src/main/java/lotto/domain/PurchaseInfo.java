@@ -19,4 +19,11 @@ public class PurchaseInfo {
 		}
 	}
 
+	public boolean isManualLottoCountZero() {
+		return manualLottoCount == 0;
+	}
+
+	public int getManualLottoCount() {
+		return manualLottoCount;
+	}
 }
