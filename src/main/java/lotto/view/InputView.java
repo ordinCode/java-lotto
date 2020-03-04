@@ -9,4 +9,9 @@ public class InputView {
 		System.out.println("구매할 금액을 입력하세요.");
 		return scanner.next();
 	}
+
+	public static String inputManualLottoCount() {
+		System.out.println("수동으로 구매할 로또의 수를 입력하세요.");
+		return scanner.next();
+	}
 }

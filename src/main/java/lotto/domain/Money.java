@@ -20,4 +20,8 @@ public class Money {
 			throw new IllegalArgumentException(ERROR_MESSAGE_MIN_MONEY);
 		}
 	}
+
+	public int divideThousand() {
+		return this.money / LOTTO_PRICE;
+	}
 }
