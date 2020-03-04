@@ -24,4 +24,9 @@ public class LottoNo {
 	public static LottoNo toLottoNo(int number) {
 		return lottoBox.get(number);
 	}
+
+	@Override
+	public String toString() {
+		return number + "";
+	}
 }

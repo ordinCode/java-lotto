@@ -7,6 +7,7 @@ import lotto.domain.Money;
 import lotto.domain.PurchaseInfo;
 import lotto.utils.StringUtils;
 import lotto.view.InputView;
+import lotto.view.OutputView;
 
 public class LottoController {
 	public static void run() {
@@ -18,5 +19,7 @@ public class LottoController {
 		Customer customer = new Customer(purchaseInfo, manualLottoNumbers);
 
 		Lottos lottos = LottoGeneratorManual.generate(customer);
+
+		OutputView.printLottos(lottos);
 	}
 }
