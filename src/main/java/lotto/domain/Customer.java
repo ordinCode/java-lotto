@@ -14,4 +14,8 @@ public class Customer {
 	public String[] getManualLottoNo() {
 		return manualLottoNo;
 	}
+
+	public PurchaseInfo getPurchaseInfo() {
+		return purchaseInfo;
+	}
 }

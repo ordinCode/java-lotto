@@ -2,8 +2,8 @@ package lotto.domain;
 
 import java.util.HashMap;
 
-public class LottoNo {
-	private static HashMap<Integer, LottoNo> lottoBox = new HashMap<>();
+public class LottoNo implements Comparable<LottoNo> {
+	public static HashMap<Integer, LottoNo> lottoBox = new HashMap<>();
 
 	static {
 		for (int i = 1; i <= 45; i++) {
@@ -28,5 +28,10 @@ public class LottoNo {
 	@Override
 	public String toString() {
 		return number + "";
+	}
+
+	@Override
+	public int compareTo(LottoNo o) {
+		return Integer.compare(this.number, o.number);
 	}
 }

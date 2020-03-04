@@ -26,4 +26,8 @@ public class PurchaseInfo {
 	public int getManualLottoCount() {
 		return manualLottoCount;
 	}
+
+	public int getAutoLottoCount() {
+		return autoLottoCount;
+	}
 }

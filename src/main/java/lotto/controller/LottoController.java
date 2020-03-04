@@ -1,6 +1,7 @@
 package lotto.controller;
 
 import lotto.domain.Customer;
+import lotto.domain.LottoGeneratorAuto;
 import lotto.domain.LottoGeneratorManual;
 import lotto.domain.Lottos;
 import lotto.domain.Money;
@@ -19,6 +20,7 @@ public class LottoController {
 		Customer customer = new Customer(purchaseInfo, manualLottoNumbers);
 
 		Lottos lottos = LottoGeneratorManual.generate(customer);
+		lottos.addAll(LottoGeneratorAuto.generate(customer));
 
 		OutputView.printLottos(lottos);
 	}

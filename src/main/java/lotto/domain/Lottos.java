@@ -26,4 +26,8 @@ public class Lottos {
 	public int hashCode() {
 		return Objects.hash(lottos);
 	}
+
+	public void addAll(List<Lotto> lottosToAdd) {
+		this.lottos.addAll(lottosToAdd);
+	}
 }
