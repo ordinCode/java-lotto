@@ -29,6 +29,6 @@ public class LottoController {
 		LottoManager lottoManager = new LottoManager(lottos, winLotto);
 		lottoManager.match();
 
-		OutputView.printResult(lottoManager);
+		OutputView.printResult(lottoManager, money);
 	}
 }

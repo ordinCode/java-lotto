@@ -33,4 +33,12 @@ public class MoneyTest {
 				.isInstanceOf(IllegalArgumentException.class)
 				.hasMessage("1000원 이상의 금액을 입력하세요.");
 	}
+
+	@DisplayName("수익률 계산")
+	@Test
+	void incomeRate() {
+		Money money = new Money("1000");
+
+		assertThat(money.calculateIncomeRate(5000)).isEqualTo(500);
+	}
 }

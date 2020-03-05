@@ -18,4 +18,9 @@ public class LottoManager {
 	public int getMatchCount(Rank rank) {
 		return rankResult.getMatchCount(rank);
 	}
+
+	public int calculateIncomeRate(Money money) {
+		int income = rankResult.calculateIncome();
+		return money.calculateIncomeRate(income);
+	}
 }

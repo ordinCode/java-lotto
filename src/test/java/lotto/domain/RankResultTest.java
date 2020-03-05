@@ -26,4 +26,14 @@ public class RankResultTest {
 
 		rankResult.rankPlus(rank);
 	}
+
+	@DisplayName("수익 계산")
+	@Test
+	void income() {
+		RankResult rankResult = new RankResult();
+		rankResult.rankPlus(Rank.FIFTH);
+		rankResult.rankPlus(Rank.FOURTH);
+
+		assertThat(rankResult.calculateIncome()).isEqualTo(505000);
+	}
 }

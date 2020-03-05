@@ -21,4 +21,12 @@ public class RankResult {
 	public int getMatchCount(Rank rank) {
 		return rankResult.get(rank);
 	}
+
+	public int calculateIncome() {
+		int income = 0;
+		for (Rank rank : rankResult.keySet()) {
+			income += rank.getAward() * rankResult.get(rank);
+		}
+		return income;
+	}
 }

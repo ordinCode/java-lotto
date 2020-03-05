@@ -24,4 +24,8 @@ public class Money {
 	public int divideThousand() {
 		return this.money / LOTTO_PRICE;
 	}
+
+	public int calculateIncomeRate(int income) {
+		return income * 100 / money;
+	}
 }
