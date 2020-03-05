@@ -25,7 +25,7 @@ public class Money {
 		return this.money / LOTTO_PRICE;
 	}
 
-	public int calculateIncomeRate(int income) {
+	public double calculateIncomeRate(double income) {
 		return income * 100 / money;
 	}
 }

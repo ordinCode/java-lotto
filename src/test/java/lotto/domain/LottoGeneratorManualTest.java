@@ -1,5 +1,6 @@
 package lotto.domain;
 
+import lotto.domain.lottogenerator.LottoGeneratorManual;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -33,7 +34,7 @@ public class LottoGeneratorManualTest {
 				.map(LottoNo::toLottoNo)
 				.collect(Collectors.toList())));
 
-		assertThat(LottoGeneratorManual.generate(customer)).isEqualTo(new Lottos(lottos));
+		assertThat(new LottoGeneratorManual().generate(customer)).isEqualTo(lottos);
 	}
 
 	@DisplayName("7개의 숫자입력")
@@ -42,7 +43,7 @@ public class LottoGeneratorManualTest {
 		String lottoNumbers = "1,2,3,4,5,6,7\n11,12,13,14,15,16";
 		Customer customer = new Customer(purchaseInfo, lottoNumbers);
 
-		assertThatThrownBy(() -> LottoGeneratorManual.generate(customer))
+		assertThatThrownBy(() -> new LottoGeneratorManual().generate(customer))
 				.isInstanceOf(IllegalArgumentException.class)
 				.hasMessage("6개의 숫자가 아닙니다.");
 	}
@@ -53,7 +54,7 @@ public class LottoGeneratorManualTest {
 		String lottoNumbers = "1,2,3,4,5\n11,12,13,14,15,16";
 		Customer customer2 = new Customer(purchaseInfo, lottoNumbers);
 
-		assertThatThrownBy(() -> LottoGeneratorManual.generate(customer2))
+		assertThatThrownBy(() -> new LottoGeneratorManual().generate(customer2))
 				.isInstanceOf(IllegalArgumentException.class)
 				.hasMessage("6개의 숫자가 아닙니다.");
 	}
@@ -64,7 +65,7 @@ public class LottoGeneratorManualTest {
 		String lottoNumbers = "1,2,3,4,5,6,6\n11,12,13,14,15,16";
 		Customer customer = new Customer(purchaseInfo, lottoNumbers);
 
-		assertThatThrownBy(() -> LottoGeneratorManual.generate(customer))
+		assertThatThrownBy(() -> new LottoGeneratorManual().generate(customer))
 				.isInstanceOf(IllegalArgumentException.class)
 				.hasMessage("숫자는 중복될 수 없습니다.");
 	}
@@ -75,7 +76,7 @@ public class LottoGeneratorManualTest {
 		String lottoNumbers = "1,2,3,4,6,6\n11,12,13,14,15,16";
 		Customer customer = new Customer(purchaseInfo, lottoNumbers);
 
-		assertThatThrownBy(() -> LottoGeneratorManual.generate(customer))
+		assertThatThrownBy(() -> new LottoGeneratorManual().generate(customer))
 				.isInstanceOf(IllegalArgumentException.class)
 				.hasMessage("숫자는 중복될 수 없습니다.");
 	}
