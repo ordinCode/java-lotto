@@ -3,6 +3,7 @@ package lotto.controller;
 import lotto.domain.Customer;
 import lotto.domain.LottoGeneratorAuto;
 import lotto.domain.LottoGeneratorManual;
+import lotto.domain.LottoManager;
 import lotto.domain.Lottos;
 import lotto.domain.Money;
 import lotto.domain.PurchaseInfo;
@@ -25,5 +26,7 @@ public class LottoController {
 		OutputView.printLottos(lottos, purchaseInfo);
 
 		WinLotto winLotto = new WinLotto(InputView.inputWinLotto(), InputView.inputBonus());
+		LottoManager lottoManager = new LottoManager(lottos, winLotto);
+		lottoManager.match();
 	}
 }

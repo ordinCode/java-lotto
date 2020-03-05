@@ -1,8 +1,21 @@
 package lotto.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 public class RankResult {
-	private final List<Rank> rankResult = new ArrayList<>();
+	private final HashMap<Rank, Integer> rankResult = new HashMap<>();
+
+	public RankResult() {
+		for (Rank rank : Rank.values()) {
+			rankResult.put(rank, 0);
+		}
+	}
+
+	public void rankPlus(Rank rank) {
+		rankResult.put(rank, rankResult.get(rank) + 1);
+	}
+
+	public HashMap<Rank, Integer> getRankResult() {
+		return rankResult;
+	}
 }
