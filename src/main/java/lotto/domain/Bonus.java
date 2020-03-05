@@ -1,4 +1,4 @@
 package lotto.domain;
 
-public class winLotto {
+public class Bonus {
 }
