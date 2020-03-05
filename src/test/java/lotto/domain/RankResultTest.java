@@ -15,6 +15,15 @@ public class RankResultTest {
 		rankResult.rankPlus(rank);
 		rankResult.rankPlus(rank);
 
-		assertThat(rankResult.getRankResult().get(Rank.FIRST)).isEqualTo(2);
+		assertThat(rankResult.getMatchCount(rank)).isEqualTo(2);
+	}
+
+	@DisplayName("랭크 저장시 매칭되는 랭크값이 없을 경우")
+	@Test
+	void rankPlusError() {
+		Rank rank = null;
+		RankResult rankResult = new RankResult();
+
+		rankResult.rankPlus(rank);
 	}
 }

@@ -32,4 +32,12 @@ public enum Rank {
 		}
 		return rank;
 	}
+
+	public int getMatchCount() {
+		return matchCount;
+	}
+
+	public int getAward() {
+		return award;
+	}
 }

@@ -12,6 +12,10 @@ public class LottoManager {
 	}
 
 	public void match() {
+		lottos.match(winLotto, rankResult);
+	}
 
+	public int getMatchCount(Rank rank) {
+		return rankResult.getMatchCount(rank);
 	}
 }

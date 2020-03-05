@@ -30,4 +30,10 @@ public class Lottos {
 	public void addAll(List<Lotto> lottosToAdd) {
 		this.lottos.addAll(lottosToAdd);
 	}
+
+	public void match(WinLotto winLotto, RankResult rankResult) {
+		for (Lotto lotto : lottos) {
+			rankResult.rankPlus(winLotto.findRank(lotto));
+		}
+	}
 }

@@ -12,10 +12,13 @@ public class RankResult {
 	}
 
 	public void rankPlus(Rank rank) {
+		if (rank == null) {
+			return;
+		}
 		rankResult.put(rank, rankResult.get(rank) + 1);
 	}
 
-	public HashMap<Rank, Integer> getRankResult() {
-		return rankResult;
+	public int getMatchCount(Rank rank) {
+		return rankResult.get(rank);
 	}
 }

@@ -1,8 +1,10 @@
 package lotto.view;
 
 import lotto.domain.Lotto;
+import lotto.domain.LottoManager;
 import lotto.domain.Lottos;
 import lotto.domain.PurchaseInfo;
+import lotto.domain.Rank;
 
 public class OutputView {
 
@@ -16,5 +18,22 @@ public class OutputView {
 			builder.append(lotto.toString());
 		}
 		System.out.println(builder.toString());
+	}
+
+	public static void printResult(LottoManager lottoManager) {
+		System.out.println("당첨통계\n----------");
+		for (Rank rank : Rank.values()) {
+			printCount(lottoManager, rank);
+		}
+	}
+
+	private static void printCount(LottoManager lottoManager, Rank rank) {
+		if (rank == Rank.SECOND) {
+			System.out.println(String.format("%d개 일치, 보너스 일치 (%d원) : %d 개"
+					, rank.getMatchCount(), rank.getAward(), lottoManager.getMatchCount(rank)));
+			return;
+		}
+		System.out.println(String.format("%d개 일치 (%d원) : %d 개"
+				, rank.getMatchCount(), rank.getAward(), lottoManager.getMatchCount(rank)));
 	}
 }
