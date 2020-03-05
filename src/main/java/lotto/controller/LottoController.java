@@ -6,6 +6,7 @@ import lotto.domain.LottoGeneratorManual;
 import lotto.domain.Lottos;
 import lotto.domain.Money;
 import lotto.domain.PurchaseInfo;
+import lotto.domain.WinLotto;
 import lotto.utils.StringUtils;
 import lotto.view.InputView;
 import lotto.view.OutputView;
@@ -21,7 +22,8 @@ public class LottoController {
 
 		Lottos lottos = LottoGeneratorManual.generate(customer);
 		lottos.addAll(LottoGeneratorAuto.generate(customer));
+		OutputView.printLottos(lottos, purchaseInfo);
 
-		OutputView.printLottos(lottos);
+		WinLotto winLotto = new WinLotto(InputView.inputWinLotto(), InputView.inputBonus());
 	}
 }

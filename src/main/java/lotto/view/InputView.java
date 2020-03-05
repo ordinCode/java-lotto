@@ -21,11 +21,26 @@ public class InputView {
 		if (purchaseInfo.isManualLottoCountZero()) {
 			return "";
 		}
+
 		System.out.println("수동으로 구매할 번호를 입력하세요.");
+		return manualNumberBuild(purchaseInfo);
+	}
+
+	private static String manualNumberBuild(PurchaseInfo purchaseInfo) {
 		StringBuilder builder = new StringBuilder();
 		for (int i = 0; i < purchaseInfo.getManualLottoCount(); i++) {
 			builder.append(scanner.next() + "\n");
 		}
 		return builder.toString();
+	}
+
+	public static String inputWinLotto() {
+		System.out.println("이번주 당첨번호를 입력하세요.");
+		return scanner.next();
+	}
+
+	public static String inputBonus() {
+		System.out.println("보너스 번호를 입력하세요.");
+		return scanner.next();
 	}
 }
