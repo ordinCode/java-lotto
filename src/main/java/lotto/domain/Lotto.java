@@ -46,4 +46,18 @@ public class Lotto {
 	public String toString() {
 		return lotto + "\n";
 	}
+
+	public int findmatchCount(Lotto winLotto) {
+		int count = 0;
+		for (LottoNo lottoNo : this.lotto) {
+			if (winLotto.contains(lottoNo)) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public boolean contains(LottoNo lottoNo) {
+		return this.lotto.contains(lottoNo);
+	}
 }
