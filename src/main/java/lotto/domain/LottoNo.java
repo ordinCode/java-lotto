@@ -7,6 +7,7 @@ public class LottoNo implements Comparable<LottoNo> {
 	public static final int MAX_LOTTO_NUMBER = 45;
 	public static final String ERROR_MESSAGE_NUMBER_RANGE = "1이상 45이하의 숫자만 입력 가능합니다.";
 
+	private int number;
 	public static HashMap<Integer, LottoNo> lottoBox = new HashMap<>();
 
 	static {
@@ -14,8 +15,6 @@ public class LottoNo implements Comparable<LottoNo> {
 			lottoBox.put(i, valueOf(i));
 		}
 	}
-
-	private int number;
 
 	private LottoNo(int number) {
 		this.number = number;
